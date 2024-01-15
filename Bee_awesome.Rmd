@@ -1,0 +1,262 @@
+---
+title: "Be(e) Awesome"
+author: "Thomas Pollet (Project lead)<br>  Northumbria University <br><br> (thomas.pollet@northumbria.ac.uk)"
+date: "`r format(Sys.Date())` | [disclaimer](http://tvpollet.github.io/disclaimer)"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+csl: evolution-and-human-behavior.csl
+bibliography: "references.bib"
+---
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r echo=F, message=F, warning = F}
+require(xaringanExtra) 
+require(stargazer)
+require(tidyverse)
+require(knitr)
+require(xfun)
+```
+
+```{r xaringan-logo, echo=FALSE}
+xaringanExtra::use_logo("NU2.png")
+```
+
+```{r xaringan-tile-view, echo=FALSE}
+xaringanExtra::use_tile_view()
+# Below generates a title slide which allows for a logo.
+# Below generates a new class of simulation table, as otherwise it will not fit. (borrowed from other project)
+```
+
+```{css, echo=F}
+.title-slide {
+  background-image: url("bee.gif");
+  background-position: 9% 5%;
+  background-size: 200px;
+  background-color: black;
+  padding-left: 100px;  /* delete this for 4:3 aspect ratio */
+}
+```
+
+```{css, echo = F}
+table {
+  font-size: 16px;     
+}
+```
+
+```{css, echo = F}
+.simulation table {
+  font-size: 7px;     
+}
+```
+
+```{css, echo = F}
+.simulation_small table {
+  font-size: 5.9px;     
+}
+```
+
+```{r load_refs, echo=FALSE, cache=FALSE, warning=F, results='hide', message=F}
+# need helper file.
+source(here::here("helper.R"))
+library(RefManageR)
+BibOptions(check.entries = FALSE, 
+           bib.style = "authoryear", 
+           style = "markdown",
+           dashed = TRUE)
+file.name <- "references.bib"
+bib <- ReadBib(file.name)
+```
+
+## Today: discussion of a pilot project
+
+* Quick background.
+
+--
+
+* Focus on design.
+
+--
+
+* Together with [Lee Shepherd](https://www.northumbria.ac.uk/about-us/our-staff/s/lee-shepherd/) (Psychology), [Katherine Baldock](https://www.northumbria.ac.uk/about-us/our-staff/b/katherine-baldock/) (Geography and Environmental Sciences), [Mark Goddard](https://www.northumbria.ac.uk/about-us/our-staff/g/mark-goddard/) (Geography and Environmental Sciences) and [Barbara Hooper](https://urbangreennewcastle.org/about-us/meet-the-team/) ([Urban Green](https://urbangreennewcastle.org/))
+
+
+```{r, out.width = "300px", echo=FALSE, fig.align='center'}
+knitr::include_graphics("https://media.giphy.com/media/n6ljtq0aO6Zqg/giphy.gif") 
+```
+
+---
+## Parks in Newcastle
+
+
+```{r, out.width = "400px", echo=FALSE, fig.align='center', fig.cap="Flats from Heaton Park, by Hayley Green"}
+knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/0/06/Flats%2C_from_Heaton_Park_-_geograph.org.uk_-_1249658.jpg") # hayley green / Flats, from Heaton Park
+```
+
+---
+## Ongoing work
+
+[Beelines project](https://urbangreennewcastle.org/our-work/beelines-north-east/). 45 sites across various parks. 
+
+--> Pollinator friendly environment. For example, via:
+
+--
+
+* Delaying mowing
+
+--
+
+* Flower rich bedding planted
+
+--
+
+```{r, out.width = "400px", echo=FALSE, fig.align='center'}
+knitr::include_graphics("https://media.giphy.com/media/rIdj5s9Ead7osqcuih/giphy.gif") 
+```
+
+
+---
+## Knowledge gap
+
+* Is this noticed?
+
+--
+
+* Is this well-received?
+
+--
+
+* How do different uses of parks relate to attitudes toward pollinators and these interventions?
+
+--
+
+* Emotions towards nature / pollinators.
+
+```{r, out.width = "400px", echo=FALSE, fig.align='center'}
+knitr::include_graphics("https://media.giphy.com/media/3S13KRy5AzPScqliki/giphy.gif") 
+```
+
+---
+## Positive emotions
+
+* Are tied to nature connectedness, willingness to learn about nature, and pro-environmental behaviours `r Citep(bib, "Hoyle2017","Williamson2022a")`. 
+
+--
+
+* Especially, 'awe' `r Citep(bib, "Ng2023")`.
+
+--
+
+* If we can establish associations between attitudes and emotions, then perhaps these can be harnessed in messaging and future interventions.
+
+
+```{r, out.width = "350px", echo=FALSE, fig.align='center'}
+knitr::include_graphics("https://media.giphy.com/media/OTEP3CCDwmpI4/giphy.gif") 
+```
+
+---
+## Current proposal
+
+* Mail survey (n = 700), posted through letterboxes (residents near parks)
+
+
+```{r, out.width = "400px", echo=FALSE, fig.align='center'}
+knitr::include_graphics("https://media.giphy.com/media/NsPTjaNFdMx8ZPe9Qh/giphy-downsized-large.gif") 
+```
+
+---
+## Supplemented with on location data collection
+
+* QR codes in park.
+
+
+```{r, out.width = "400px", echo=FALSE, fig.align='center'}
+knitr::include_graphics("https://media.giphy.com/media/Gf5QiP1TWCO8qYKmt7/giphy.gif") 
+```
+
+
+---
+## Content
+
+* Co-designed with Urban Green Newcastle
+
+--
+
+* knowledge of the management changes in their local park (i.e. mowing changes and/or floral enhancements)
+
+--
+
+* sociodemographics
+
+--
+
+* use of parks
+
+--
+
+* attitudes towards pollinators `r Citep(bib, "Knapp2021")`
+
+--
+
+* positive emotions, such as awe `r Citep(bib, "Yaden2019")`
+
+---
+## Outcomes
+
+* Platform for future (funded) work: intervention, measuring well-being / health.
+
+--
+
+* Strengthening collaboration with Urban Green.
+
+```{r, out.width = "400px", echo=FALSE, fig.align='center'}
+knitr::include_graphics("https://media.giphy.com/media/CW27AW0nlp5u0/giphy.gif") 
+```
+
+---
+## Acknowledgments
+
+* I am greatly indebted to my collaborators. (Any mistakes are my own!). 
+
+* slides are built in [Xaringan](https://github.com/yihui/xaringan) and [XaringanExtra](https://pkg.garrickadenbuie.com/xaringanExtra/#/)
+
+* You for listening!
+
+```{r, out.width = "300px", echo=FALSE, fig.align='center'}
+knitr::include_graphics("https://media.giphy.com/media/10avZ0rqdGFyfu/giphy.gif")
+```
+
+---
+## Any Questions?
+
+[thomas.pollet@northumbria.ac.uk](mailto:thomas.pollet@northumbria.ac.uk)
+
+Twitter: @tvpollet; Mastodon: @tvpollet@sciences.social 
+
+```{r, out.width = "600px", echo=FALSE, fig.align='center'}
+knitr::include_graphics("https://media.giphy.com/media/3ohzdRoOp1FUYbtGDu/giphy.gif")
+```
+
+
+---
+## References (errors = blame RefManageR)
+
+```{r, 'refs', results='asis', echo=FALSE, warning=F}
+PrintBibliography(bib, start=1, end=4)
+```
+
+---
+## References II (errors = blame RefManageR)
+
+```{r, 'refs2', results='asis', echo=FALSE, warning=F}
+PrintBibliography(bib, start=5, end=5)
+```
